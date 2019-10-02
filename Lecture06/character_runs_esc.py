@@ -25,7 +25,7 @@ def handle_events():
 while x < 800 and running:
     clear_canvas()
     grass.draw(400, 30)
-    character.clip_draw(frame * 100, 100, 100, 100, x, 150)
+    character.clip_draw(frame * 100, 100, 100, 100, x, 200)
     update_canvas()
 
     handle_events()
