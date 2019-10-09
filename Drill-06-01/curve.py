@@ -55,6 +55,7 @@ def draw_point(p):
 
 def draw_curve_3_points(p1, p2, p3):
     # fill here
+    # 수정
     pass
 
 
