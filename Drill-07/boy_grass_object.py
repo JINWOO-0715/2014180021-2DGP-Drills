@@ -34,6 +34,18 @@ class Ball:
         self.move_speed =  random.randint(3,12)
         self.image_big_ball = load_image('ball41x41.png')
         self.shape = random.randint(1,2)
+
+    def update(self):
+        if self.shape ==1 :
+            if self.y <=70:
+                self.y = 70
+            else:
+                self.y -= self.move_speed
+        else:
+            if self.y <=65:
+                self.y =65
+            else:
+                self.y -= self.move_speed
     def draw(self):
         if(self.shape==1):
           self.image_big_ball.draw(self.x,self.y)
@@ -53,11 +65,14 @@ while running:
     handle_events() # 플레이어
     for boy in team:
         boy.update()
+    for ball in Balls:
+        ball.update()
     clear_canvas()
     for boy in team:
         boy.draw()
     for ball in Balls:
         ball.draw()
+
     grass.draw()
     update_canvas()
 
