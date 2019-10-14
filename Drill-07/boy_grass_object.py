@@ -29,22 +29,25 @@ class Boy :
 
 class Ball:
     def __init__(self):
-        self.x,self.y = random.randint(50,750),700
+        self.x,self.y = random.randint(50,750),599
         self.image_small_ball = load_image('ball21x21.png')
         self.move_speed =  random.randint(3,12)
         self.image_big_ball = load_image('ball41x41.png')
         self.shape = random.randint(1,2)
-    
-
-        pass
+    def draw(self):
+        if(self.shape==1):
+          self.image_big_ball.draw(self.x,self.y)
+        else:
+          self.image_small_ball.draw(self.x,self.y)
 
 # initialization code
 open_canvas()
 boy = Boy()
 grass = Grass()
+ball = Ball()
 team = [Boy() for i in range(11)]
 running = True
-
+Balls = [Ball() for i in range(20)]
 # game main loop code
 while running:
     handle_events() # 플레이어
@@ -53,6 +56,8 @@ while running:
     clear_canvas()
     for boy in team:
         boy.draw()
+    for ball in Balls:
+        ball.draw()
     grass.draw()
     update_canvas()
 
