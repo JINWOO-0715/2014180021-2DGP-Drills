@@ -30,17 +30,24 @@ def handle_events():
 
 
 def draw():
-    global count
-    if count%10 <=5:
+    clear_canvas()
+    main_state.draw()
+    if count <= 20:
         image.clip_draw(200, 200, 500, 500, 400, 300, 200, 200)
-    else:
-        pass
-    count += 1
     update_canvas()
+    delay(0.05)
+
+
+
+
+
 
 
 def update():
-    pass
+    global count
+    count += 1
+    if count == 40:
+        count = 0
 
 
 def pause():
