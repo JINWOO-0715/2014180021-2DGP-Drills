@@ -10,11 +10,9 @@ def enter():
     global image
     image = load_image('title.png')
 
-
 def exit():
     global image
     del (image)
-
 
 def handle_events():
     events = get_events()
