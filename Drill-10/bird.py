@@ -31,8 +31,8 @@ class Bird:
             self.image.clip_composite_draw((int(self.frame) % 5) * 182, (int((15 - self.frame) / 5)) * 167, 182, 167, 0,
                                            '', self.x, self.y, 182, 167)
         else:
-            self.image.clip_composite_draw((int(self.frame) % 5) * 182, (int((15 - self.frame) / 5)) * 167, 182, 167, 0,
-                                           'h', self.x, self.y, 182, 167)
+            pass
+
 
     def update(self):
         self.x += self.velocity * game_framework.frame_time
