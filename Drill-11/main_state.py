@@ -30,8 +30,6 @@ def collide(a, b):
     return True
 
 
-
-
 def enter():
     global boy
     boy = Boy()
@@ -85,6 +83,12 @@ def update():
     for ball in balls:
         if collide(grass, ball):
             ball.stop()
+    for ball in balls:
+        if collide(block,ball):
+            ball.x += block.velocity
+            if collide(block, ball):
+                ball.stop()
+
 
 
 
