@@ -26,7 +26,15 @@ key_event_table = {
     (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
     (SDL_KEYDOWN, SDLK_SPACE): SPACE
 }
+def collide(a, b):
+    left_a, bottom_a, right_a, top_a = a.get_bb()
+    left_b, bottom_b, right_b, top_b = b.get_bb()
+    if left_a > right_b: return False
+    if right_a < left_b: return False
+    if top_a < bottom_b: return False
+    if bottom_a > top_b: return False
 
+    return True
 
 # Boy States
 
@@ -95,6 +103,7 @@ class RunState:
         boy.jump()
         boy.x += boy.velocity * game_framework.frame_time
         boy.x = clamp(25, boy.x, 1600 - 25)
+
 
     @staticmethod
     def draw(boy):

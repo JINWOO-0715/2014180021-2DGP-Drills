@@ -40,7 +40,7 @@ def enter():
     game_world.add_object(grass, 0)
 
     global balls
-    balls = [Ball() for i in range(10)] + [BigBall() for i in range(10)]
+    balls = [Ball() for i in range(20)] + [BigBall() for i in range(10)]
     game_world.add_objects(balls, 1)
 
     global block
@@ -83,19 +83,24 @@ def update():
     for ball in balls:
         if collide(grass, ball):
             ball.stop()
-    if collide(grass,boy):
-        boy.stop()
     for ball in balls:
         if collide(block,ball):
-            ball.x += block.velocity
+            ball.x += block.velocity * block.dir
             if collide(block, ball):
                 ball.stop()
-    if collide(boy,block) and boy.y>block.y+10:
+    if collide(grass,boy):
+        boy.stop()
+
+    if collide(boy,block) and boy.y>block.y+20:
+
         boy.y = block.y+60
         boy.jump_state = False
-        boy.x += block.velocity
+        boy.x += block.velocity * block.dir
     elif collide(boy,block) :
-        boy.x += block.velocity
+
+        boy.x += block.velocity*block.dir
+        boy.jump_state = False
+
     else:
         boy.jump_state = True
 
