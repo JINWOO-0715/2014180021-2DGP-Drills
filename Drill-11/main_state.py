@@ -83,11 +83,21 @@ def update():
     for ball in balls:
         if collide(grass, ball):
             ball.stop()
+    if collide(grass,boy):
+        boy.stop()
     for ball in balls:
         if collide(block,ball):
             ball.x += block.velocity
             if collide(block, ball):
                 ball.stop()
+    if collide(boy,block) and boy.y>block.y+10:
+        boy.y = block.y+60
+        boy.jump_state = False
+        boy.x += block.velocity
+    elif collide(boy,block) :
+        boy.x += block.velocity
+    else:
+        boy.jump_state = True
 
 
 
