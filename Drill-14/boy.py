@@ -1,6 +1,6 @@
 import game_framework
 from pico2d import *
-
+import main_state
 import game_world
 
 # Boy Run Speed
@@ -144,7 +144,7 @@ class Boy:
 
     def draw(self):
         self.cur_state.draw(self)
-        self.font.draw(self.canvas_width//2 - 60, self.canvas_height//2 + 50, '(%5d, %5d)' % (self.x, self.y), (255, 255, 0))
+        self.font.draw(self.canvas_width//2 - 60, self.canvas_height//2 + 50, '(Ball count :%d)' % (main_state.count), (255, 255, 0))
 
     def handle_event(self, event):
         if (event.type, event.key) in key_event_table:

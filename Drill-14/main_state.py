@@ -13,6 +13,7 @@ name = "MainState"
 
 boy = None
 background = None
+count =0
 
 def clamp(minimum,x ,maximum):
     return max(minimum,min(x,maximum))
@@ -76,11 +77,13 @@ def handle_events():
 
 
 def update():
+    global count
     for game_object in game_world.all_objects():
         game_object.update()
     for ball in balls:
         if collide(boy, ball):
             balls.remove(ball)
+            count+=1
             game_world.remove_object(ball)
 
 
