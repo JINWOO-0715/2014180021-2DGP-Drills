@@ -14,7 +14,7 @@ class FixedBackground:
 
     def set_center_object(self, boy):
         self.center_object =boy
-        pass
+
 
     def draw(self):
         self.image.clip_draw_to_origin(self.window_left,self.window_bottom,

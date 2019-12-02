@@ -5,7 +5,7 @@ import os
 from pico2d import *
 import game_framework
 import game_world
-#from ball import Ball ,BigBall
+from ball import Ball
 
 from boy import Boy
 from background import FixedBackground as Background
@@ -47,9 +47,11 @@ def enter():
     background.set_center_object(boy)
     boy.set_background(background)
 
-#    global balls
-#    balls = [Ball() for i in range(20)] + [BigBall() for i in range(10)]
-#    game_world.add_objects(balls, 1)
+    global balls
+    balls = [Ball() for i in range(100)]
+    game_world.add_objects(balls, 1)
+
+
 
 def exit():
     game_world.clear()
@@ -76,10 +78,10 @@ def handle_events():
 def update():
     for game_object in game_world.all_objects():
         game_object.update()
-#    for ball in balls:
-#        if collide(boy, ball):
-#            balls.remove(ball)
-#            game_world.remove_object(ball)
+    for ball in balls:
+        if collide(boy, ball):
+            balls.remove(ball)
+            game_world.remove_object(ball)
 
 
 def draw():
